@@ -6,7 +6,6 @@ import com.eventhorizon.jarvis.entities.AbstractEntity;
 /**
 * The commom interface for creating the repositories
 *
-*
 * @author Iuri Andreazza { iuri.andreazza@reeverpd.com.br }
 */
 public interface IRepository <T extends AbstractEntity<K>, K extends Object> {
