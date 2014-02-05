@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 import java.util.Date;
+import java.util.List;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -19,6 +20,9 @@ public class HistoricoCobranca extends AbstractEntity<Long> implements Serializa
 
 	private static final long serialVersionUID = 944348287513968166L;
 
+	@Getter @Setter
+	private Long CodigoCobranca;
+	
 	@Getter @Setter
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataCobranca;
@@ -56,6 +60,9 @@ public class HistoricoCobranca extends AbstractEntity<Long> implements Serializa
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="Id_DadosCobranca")	
 	private DadosCobranca dadosCobranca;
+	
+	@OneToMany(mappedBy="historicoCobranca")
+	private List<ItemCobranca> items;
 
 	
 }

@@ -22,6 +22,9 @@
 		<class>com.eventhorizon.jarvis.entities.User</class>
 		<class>com.eventhorizon.jarvis.entities.Vertical</class>
 		<class>com.eventhorizon.jarvis.entities.VerticalUser</class>
+		<class>com.eventhorizon.jarvis.entities.CMSUser</class>
+		<class>com.eventhorizon.jarvis.entities.ItemCobranca</class>
+		<class>com.eventhorizon.jarvis.entities.ParametroAplicativo</class>
 
 		<properties>
 			<property name="eclipselink.ddl-generation" value="none" />
