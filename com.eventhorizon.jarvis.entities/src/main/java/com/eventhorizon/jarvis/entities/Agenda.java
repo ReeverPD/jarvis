@@ -1,8 +1,13 @@
 package com.eventhorizon.jarvis.entities;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
+
 import java.util.List;
+
+import lombok.Getter;
+import lombok.Setter;
 
 
 /**
@@ -10,99 +15,39 @@ import java.util.List;
  * 
  */
 @Entity
-@NamedQuery(name="Agenda.findAll", query="SELECT a FROM Agenda a")
 public class Agenda extends AbstractEntity<Long> implements Serializable {
-	private static final long serialVersionUID = 1L;
-	private int id;
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2562099753309646898L;
+
+	@Getter @Setter
 	private String aberta;
+
+	@Getter @Setter
 	private int diaSemanaFim;
+	
+	@Getter @Setter
 	private int diaSemanaInicio;
+	
+	@Getter @Setter
 	private float minutosCompromisso;
+	
+	@Getter @Setter
 	private String nomeAgenda;
-	private User user;
-	private List<Compromisso> compromissos;
-
-	public Agenda() {
-	}
-
-
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	public int getId() {
-		return this.id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-
-	public String getAberta() {
-		return this.aberta;
-	}
-
-	public void setAberta(String aberta) {
-		this.aberta = aberta;
-	}
-
-
-	public int getDiaSemanaFim() {
-		return this.diaSemanaFim;
-	}
-
-	public void setDiaSemanaFim(int diaSemanaFim) {
-		this.diaSemanaFim = diaSemanaFim;
-	}
-
-
-	public int getDiaSemanaInicio() {
-		return this.diaSemanaInicio;
-	}
-
-	public void setDiaSemanaInicio(int diaSemanaInicio) {
-		this.diaSemanaInicio = diaSemanaInicio;
-	}
-
-
-	public float getMinutosCompromisso() {
-		return this.minutosCompromisso;
-	}
-
-	public void setMinutosCompromisso(float minutosCompromisso) {
-		this.minutosCompromisso = minutosCompromisso;
-	}
-
-
-	public String getNomeAgenda() {
-		return this.nomeAgenda;
-	}
-
-	public void setNomeAgenda(String nomeAgenda) {
-		this.nomeAgenda = nomeAgenda;
-	}
-
-
+	
 	//bi-directional many-to-one association to User
+	@Getter @Setter
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="Id_User")
-	public User getUser() {
-		return this.user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-
+	private User user;
+	
 	//bi-directional many-to-one association to Compromisso
+	@Getter @Setter
 	@OneToMany(mappedBy="agenda")
-	public List<Compromisso> getCompromissos() {
-		return this.compromissos;
-	}
+	private List<Compromisso> compromissos;
 
-	public void setCompromissos(List<Compromisso> compromissos) {
-		this.compromissos = compromissos;
-	}
 
 	public Compromisso addCompromisso(Compromisso compromisso) {
 		getCompromissos().add(compromisso);

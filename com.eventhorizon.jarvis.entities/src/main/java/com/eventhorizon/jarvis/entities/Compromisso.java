@@ -1,8 +1,13 @@
 package com.eventhorizon.jarvis.entities;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
+
 import java.util.List;
+
+import lombok.Getter;
+import lombok.Setter;
 
 
 /**
@@ -10,97 +15,44 @@ import java.util.List;
  * 
  */
 @Entity
-@NamedQuery(name="Compromisso.findAll", query="SELECT c FROM Compromisso c")
 public class Compromisso extends AbstractEntity<Long> implements Serializable {
-	private static final long serialVersionUID = 1L;
-	private int id;
-	private String descricao;
-	private String titulo;
-	private Agenda agenda;
-	private User user1;
-	private User user2;
-	private List<ConversaCompromisso> conversaCompromissos;
-	private List<Horario> horarios;
 
-	public Compromisso() {
-	}
+	private static final long serialVersionUID = -2525823978555406470L;
 
-
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	public int getId() {
-		return this.id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-
+	@Getter @Setter
 	@Lob
-	public String getDescricao() {
-		return this.descricao;
-	}
+	private String descricao;
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-
-
-	public String getTitulo() {
-		return this.titulo;
-	}
-
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
-
-
+	@Getter @Setter
+	private String titulo;
+	
 	//bi-directional many-to-one association to Agenda
+	@Getter @Setter
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="Id_Agenda")
-	public Agenda getAgenda() {
-		return this.agenda;
-	}
-
-	public void setAgenda(Agenda agenda) {
-		this.agenda = agenda;
-	}
-
-
+	private Agenda agenda;
+	
 	//bi-directional many-to-one association to User
+	@Getter @Setter
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="Id_User_From")
-	public User getUser1() {
-		return this.user1;
-	}
-
-	public void setUser1(User user1) {
-		this.user1 = user1;
-	}
-
-
+	private User userFrom;
+	
 	//bi-directional many-to-one association to User
+	@Getter @Setter
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="Id_User_To")
-	public User getUser2() {
-		return this.user2;
-	}
-
-	public void setUser2(User user2) {
-		this.user2 = user2;
-	}
-
-
+	private User userTo;
+	
 	//bi-directional many-to-one association to ConversaCompromisso
+	@Getter @Setter
 	@OneToMany(mappedBy="compromisso")
-	public List<ConversaCompromisso> getConversaCompromissos() {
-		return this.conversaCompromissos;
-	}
-
-	public void setConversaCompromissos(List<ConversaCompromisso> conversaCompromissos) {
-		this.conversaCompromissos = conversaCompromissos;
-	}
+	private List<ConversaCompromisso> conversaCompromissos;
+	
+	//bi-directional many-to-one association to Horario
+	@Getter @Setter
+	@OneToMany(mappedBy="compromisso")
+	private List<Horario> horarios;
 
 	public ConversaCompromisso addConversaCompromisso(ConversaCompromisso conversaCompromisso) {
 		getConversaCompromissos().add(conversaCompromisso);
@@ -112,32 +64,18 @@ public class Compromisso extends AbstractEntity<Long> implements Serializable {
 	public ConversaCompromisso removeConversaCompromisso(ConversaCompromisso conversaCompromisso) {
 		getConversaCompromissos().remove(conversaCompromisso);
 		conversaCompromisso.setCompromisso(null);
-
 		return conversaCompromisso;
-	}
-
-
-	//bi-directional many-to-one association to Horario
-	@OneToMany(mappedBy="compromisso")
-	public List<Horario> getHorarios() {
-		return this.horarios;
-	}
-
-	public void setHorarios(List<Horario> horarios) {
-		this.horarios = horarios;
 	}
 
 	public Horario addHorario(Horario horario) {
 		getHorarios().add(horario);
 		horario.setCompromisso(this);
-
 		return horario;
 	}
 
 	public Horario removeHorario(Horario horario) {
 		getHorarios().remove(horario);
 		horario.setCompromisso(null);
-
 		return horario;
 	}
 

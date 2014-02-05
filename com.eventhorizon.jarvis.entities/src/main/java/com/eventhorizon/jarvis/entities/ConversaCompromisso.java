@@ -1,8 +1,13 @@
 package com.eventhorizon.jarvis.entities;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
+
 import java.util.Date;
+
+import lombok.Getter;
+import lombok.Setter;
 
 
 /**
@@ -10,71 +15,29 @@ import java.util.Date;
  * 
  */
 @Entity
-@NamedQuery(name="ConversaCompromisso.findAll", query="SELECT c FROM ConversaCompromisso c")
 public class ConversaCompromisso extends AbstractEntity<Long> implements Serializable {
-	private static final long serialVersionUID = 1L;
-	private int id;
-	private Date data;
-	private String texto;
-	private Compromisso compromisso;
-	private User user;
 
-	public ConversaCompromisso() {
-	}
+	private static final long serialVersionUID = 8475985093616107148L;
 
-
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	public int getId() {
-		return this.id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-
+	@Getter @Setter
 	@Temporal(TemporalType.TIMESTAMP)
-	public Date getData() {
-		return this.data;
-	}
-
-	public void setData(Date data) {
-		this.data = data;
-	}
-
-
+	private Date data;
+	
+	@Getter @Setter
 	@Lob
-	public String getTexto() {
-		return this.texto;
-	}
-
-	public void setTexto(String texto) {
-		this.texto = texto;
-	}
-
-
+	private String texto;
+	
 	//bi-directional many-to-one association to Compromisso
+	@Getter @Setter
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="Id_Compromisso")
-	public Compromisso getCompromisso() {
-		return this.compromisso;
-	}
-
-	public void setCompromisso(Compromisso compromisso) {
-		this.compromisso = compromisso;
-	}
-
-
+	private Compromisso compromisso;
+	
 	//bi-directional many-to-one association to User
+	@Getter @Setter
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="Id_User")
-	public User getUser() {
-		return this.user;
-	}
+	private User user;
 
-	public void setUser(User user) {
-		this.user = user;
-	}
 
 }

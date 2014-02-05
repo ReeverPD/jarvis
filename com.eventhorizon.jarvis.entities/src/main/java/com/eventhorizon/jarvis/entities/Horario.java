@@ -1,10 +1,15 @@
 package com.eventhorizon.jarvis.entities;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
+
 import java.sql.Time;
 import java.util.Date;
 import java.util.List;
+
+import lombok.Getter;
+import lombok.Setter;
 
 
 /**
@@ -12,114 +17,51 @@ import java.util.List;
  * 
  */
 @Entity
-@NamedQuery(name="Horario.findAll", query="SELECT h FROM Horario h")
 public class Horario extends AbstractEntity<Long> implements Serializable {
-	private static final long serialVersionUID = 1L;
-	private int id;
-	private Date DIa;
-	private Time horarioFim;
-	private Time horarioInicio;
-	private String obs;
-	private String status;
-	private Compromisso compromisso;
-	private Horario horario;
-	private List<Horario> horarios;
 
-	public Horario() {
-	}
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6828256657832309029L;
 
-
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	public int getId() {
-		return this.id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-
+	@Getter @Setter
 	@Temporal(TemporalType.DATE)
-	public Date getDIa() {
-		return this.DIa;
-	}
+	private Date DIa;
 
-	public void setDIa(Date DIa) {
-		this.DIa = DIa;
-	}
-
-
-	public Time getHorarioFim() {
-		return this.horarioFim;
-	}
-
-	public void setHorarioFim(Time horarioFim) {
-		this.horarioFim = horarioFim;
-	}
-
-
-	public Time getHorarioInicio() {
-		return this.horarioInicio;
-	}
-
-	public void setHorarioInicio(Time horarioInicio) {
-		this.horarioInicio = horarioInicio;
-	}
-
-
-	public String getObs() {
-		return this.obs;
-	}
-
-	public void setObs(String obs) {
-		this.obs = obs;
-	}
-
-
-	public String getStatus() {
-		return this.status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
-
+	@Getter @Setter
+	private Time horarioFim;
+	
+	@Getter @Setter
+	private Time horarioInicio;
+	
+	@Getter @Setter
+	private String obs;
+	
+	@Getter @Setter
+	private String status;
+	
 	//bi-directional many-to-one association to Compromisso
+	@Getter @Setter
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="Id_Compromisso")
-	public Compromisso getCompromisso() {
-		return this.compromisso;
-	}
-
-	public void setCompromisso(Compromisso compromisso) {
-		this.compromisso = compromisso;
-	}
-
-
+	private Compromisso compromisso;
+	
 	//bi-directional many-to-one association to Horario
+	@Getter @Setter
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="Id_Horario_Pai")
-	public Horario getHorario() {
-		return this.horario;
-	}
-
-	public void setHorario(Horario horario) {
-		this.horario = horario;
-	}
-
-
+	private Horario horario;
+	
 	//bi-directional many-to-one association to Horario
+	@Getter @Setter
 	@OneToMany(mappedBy="horario")
-	public List<Horario> getHorarios() {
-		return this.horarios;
-	}
+	private List<Horario> horarios;
 
-	public void setHorarios(List<Horario> horarios) {
-		this.horarios = horarios;
-	}
-
+	/**
+	 * 
+	 * @param horario
+	 * @return
+	 */
 	public Horario addHorario(Horario horario) {
 		getHorarios().add(horario);
 		horario.setHorario(this);
@@ -127,6 +69,11 @@ public class Horario extends AbstractEntity<Long> implements Serializable {
 		return horario;
 	}
 
+	/**
+	 * 
+	 * @param horario
+	 * @return
+	 */
 	public Horario removeHorario(Horario horario) {
 		getHorarios().remove(horario);
 		horario.setHorario(null);

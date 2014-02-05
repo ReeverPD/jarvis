@@ -1,7 +1,11 @@
 package com.eventhorizon.jarvis.entities;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
+
+import lombok.Getter;
+import lombok.Setter;
 
 
 /**
@@ -9,77 +13,28 @@ import javax.persistence.*;
  * 
  */
 @Entity
-@NamedQuery(name="Contato.findAll", query="SELECT c FROM Contato c")
 public class Contato extends AbstractEntity<Long> implements Serializable {
-	private static final long serialVersionUID = 1L;
-	private int id;
+
+	private static final long serialVersionUID = -4449994898303294184L;
+
+	@Getter @Setter
 	private String assunto;
+
+	@Getter @Setter
 	private String email;
-	private String mensagem;
-	private String nome;
-	private User user;
-
-	public Contato() {
-	}
-
-
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	public int getId() {
-		return this.id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-
-	public String getAssunto() {
-		return this.assunto;
-	}
-
-	public void setAssunto(String assunto) {
-		this.assunto = assunto;
-	}
-
-
-	public String getEmail() {
-		return this.email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-
+	
+	@Getter @Setter
 	@Lob
-	public String getMensagem() {
-		return this.mensagem;
-	}
-
-	public void setMensagem(String mensagem) {
-		this.mensagem = mensagem;
-	}
-
-
-	public String getNome() {
-		return this.nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-
+	private String mensagem;
+	
+	@Getter @Setter
+	private String nome;
+	
 	//bi-directional many-to-one association to User
+	@Getter @Setter
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="Id_User")
-	public User getUser() {
-		return this.user;
-	}
+	private User user;
 
-	public void setUser(User user) {
-		this.user = user;
-	}
-
+	
 }

@@ -1,7 +1,11 @@
 package com.eventhorizon.jarvis.entities;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
+
+import lombok.Getter;
+import lombok.Setter;
 
 
 /**
@@ -9,74 +13,31 @@ import javax.persistence.*;
  * 
  */
 @Entity
-@NamedQuery(name="Faq.findAll", query="SELECT f FROM Faq f")
 public class Faq extends AbstractEntity<Long> implements Serializable {
-	private static final long serialVersionUID = 1L;
-	private int id;
-	private String descricao;
-	private int nro;
-	private String quantInutil;
-	private int quantUtil;
-	private String titulo;
+	
+	private static final long serialVersionUID = -241618668205490447L;
 
-	public Faq() {
-	}
-
-
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	public int getId() {
-		return this.id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-
+	@Getter @Setter
 	@Lob
-	public String getDescricao() {
-		return this.descricao;
-	}
+	private String descricao;
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
+	@Getter @Setter
+	private int nro;
+	
+	@Getter @Setter
+	private int quantInutil;
+	
+	@Getter @Setter
+	private int quantUtil;
+	
+	@Getter @Setter
+	private String titulo;
+	
 
-
-	public int getNro() {
-		return this.nro;
-	}
-
-	public void setNro(int nro) {
-		this.nro = nro;
-	}
-
-
-	public String getQuantInutil() {
-		return this.quantInutil;
-	}
-
-	public void setQuantInutil(String quantInutil) {
-		this.quantInutil = quantInutil;
-	}
-
-
-	public int getQuantUtil() {
-		return this.quantUtil;
-	}
-
-	public void setQuantUtil(int quantUtil) {
-		this.quantUtil = quantUtil;
-	}
-
-
-	public String getTitulo() {
-		return this.titulo;
-	}
-
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
+//	@Lob
+//	public String getDescricao() {
+//		return this.descricao;
+//	}
+	
 
 }
