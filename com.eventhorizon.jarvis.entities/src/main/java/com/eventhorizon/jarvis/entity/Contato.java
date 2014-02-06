@@ -13,6 +13,7 @@ import lombok.Setter;
  * 
  */
 @Entity
+@NamedQuery(name="Contato.findAll", query="SELECT c FROM Contato c")
 public class Contato extends AbstractEntity<Long> implements Serializable {
 
 	private static final long serialVersionUID = -4449994898303294184L;

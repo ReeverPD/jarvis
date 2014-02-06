@@ -14,6 +14,7 @@ import lombok.Setter;
  * 
  */
 @Entity
+@NamedQuery(name="Vertical.findAll", query="SELECT v FROM Vertical v")
 public class Vertical extends AbstractEntity<Long> implements Serializable {
 
 	private static final long serialVersionUID = 8636028641369469022L;

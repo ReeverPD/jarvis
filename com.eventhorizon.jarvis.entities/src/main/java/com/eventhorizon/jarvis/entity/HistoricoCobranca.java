@@ -16,6 +16,7 @@ import lombok.Setter;
  * 
  */
 @Entity
+@NamedQuery(name="HistoricoCobranca.findAll", query="SELECT h FROM HistoricoCobranca h")
 public class HistoricoCobranca extends AbstractEntity<Long> implements Serializable {
 
 	private static final long serialVersionUID = 944348287513968166L;

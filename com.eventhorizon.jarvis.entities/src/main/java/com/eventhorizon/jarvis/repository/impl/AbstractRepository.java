@@ -1,9 +1,11 @@
 package com.eventhorizon.jarvis.repository.impl;
 
 import java.lang.reflect.ParameterizedType;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import lombok.Getter;
 
@@ -23,7 +25,7 @@ import com.eventhorizon.jarvis.repository.IRepository;
  * @param <T>
  * @param <K>
  */
-@SuppressWarnings("restriction")
+@SuppressWarnings({ "unchecked" , "restriction" })
 public abstract class AbstractRepository<T extends AbstractEntity<K>, K extends Object> implements IRepository<T, K> {
 
 	private Class<AbstractEntity<K>> type;
@@ -34,24 +36,40 @@ public abstract class AbstractRepository<T extends AbstractEntity<K>, K extends 
     @Getter
     protected EntityManager entityManager;
 
-    @SuppressWarnings({ "unchecked" })
+    /**
+     * Contructor
+     */
     public AbstractRepository(){
         if(getClass().getGenericSuperclass() instanceof ParameterizedTypeImpl){
             type = (Class<AbstractEntity<K>>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
         }
     }
     
+    /**
+     * Contructor
+     * @param persistenceClass
+     */
     public AbstractRepository(Class<AbstractEntity<K>> persistenceClass){
         type = persistenceClass;
     }
     
+    /**
+     * Return the entityManager
+     * 
+     * @param entityManager
+     */
     @PersistenceContext
     public void setEntityManager(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
     
+    
+    @Override
+    public List<T> findAll(){
+    	Query qry = this.getEntityManager().createNamedQuery(type.getName()+".findAll");
+    	return qry.getResultList();
+    }
 	
-    @SuppressWarnings("unchecked")
 	@Transactional
     @Override
     public T getById(K id) {

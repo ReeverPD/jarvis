@@ -14,6 +14,7 @@ import lombok.Setter;
  */
 @Entity
 @Table(name="CMSUsers")
+@NamedQuery(name="CMSUser.findAll", query="SELECT c FROM CMSUser c")
 public class CMSUser extends AbstractEntity<Long> implements Serializable {
 
 	private static final long serialVersionUID = -8758681200474185698L;

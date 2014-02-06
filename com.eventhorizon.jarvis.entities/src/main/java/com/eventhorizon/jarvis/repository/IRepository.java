@@ -1,5 +1,7 @@
 package com.eventhorizon.jarvis.repository;
 
+import java.util.List;
+
 import com.eventhorizon.jarvis.entity.AbstractEntity;
 
 
@@ -10,6 +12,14 @@ import com.eventhorizon.jarvis.entity.AbstractEntity;
 */
 public interface IRepository <T extends AbstractEntity<K>, K extends Object> {
 
+	/**
+     * Find All (List All Elements)
+     * Slow Method, not to use often
+     * 
+     * @return
+     */
+	List<T> findAll();
+	
 	/**
 	 * Refresh the entitie
 	 * @param entity

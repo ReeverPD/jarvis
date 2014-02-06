@@ -15,6 +15,7 @@ import lombok.Setter;
  * 
  */
 @Entity
+@NamedQuery(name="User.findAll", query="SELECT u FROM User u")
 public class User extends AbstractEntity<Long> implements Serializable {
 
 	/**

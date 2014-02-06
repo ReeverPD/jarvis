@@ -17,6 +17,7 @@ import lombok.Setter;
  * 
  */
 @Entity
+@NamedQuery(name="Horario.findAll", query="SELECT h FROM Horario h")
 public class Horario extends AbstractEntity<Long> implements Serializable {
 
 	/**

@@ -15,6 +15,7 @@ import lombok.Setter;
  * 
  */
 @Entity
+@NamedQuery(name="ConversaCompromisso.findAll", query="SELECT c FROM ConversaCompromisso c")
 public class ConversaCompromisso extends AbstractEntity<Long> implements Serializable {
 
 	private static final long serialVersionUID = 8475985093616107148L;

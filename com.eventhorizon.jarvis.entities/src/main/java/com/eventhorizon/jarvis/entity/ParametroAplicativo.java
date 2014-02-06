@@ -13,6 +13,7 @@ import lombok.Setter;
  * 
  */
 @Entity
+@NamedQuery(name="ParametroAplicativo.findAll", query="SELECT p FROM ParametroAplicativo p")
 public class ParametroAplicativo extends AbstractEntity<Long> implements Serializable {
 
 	@Getter @Setter

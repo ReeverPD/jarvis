@@ -13,6 +13,7 @@ import lombok.Setter;
  * 
  */
 @Entity
+@NamedQuery(name="Faq.findAll", query="SELECT f FROM Faq f")
 public class Faq extends AbstractEntity<Long> implements Serializable {
 	
 	private static final long serialVersionUID = -241618668205490447L;

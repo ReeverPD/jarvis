@@ -15,6 +15,7 @@ import lombok.Setter;
  * 
  */
 @Entity
+@NamedQuery(name="Agenda.findAll", query="SELECT a FROM Agenda a")
 public class Agenda extends AbstractEntity<Long> implements Serializable {
 
 	/**
