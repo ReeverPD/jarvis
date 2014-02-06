@@ -6,6 +6,11 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+/**
+ * 
+ * @author iuriandreazza
+ *
+ */
 public class OpecPageInterceptor implements HandlerInterceptor {
 
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception {
@@ -17,7 +22,7 @@ public class OpecPageInterceptor implements HandlerInterceptor {
 
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object o, ModelAndView mav) throws Exception {
         if(mav != null){
-        	mav.addObject("resourcePath", attributeValue);
+//        	mav.addObject("resourcePath", "");
         }
     }
 

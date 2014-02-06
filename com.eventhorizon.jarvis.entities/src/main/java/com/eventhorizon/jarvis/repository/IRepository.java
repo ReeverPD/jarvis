@@ -1,6 +1,6 @@
 package com.eventhorizon.jarvis.repository;
 
-import com.eventhorizon.jarvis.entities.AbstractEntity;
+import com.eventhorizon.jarvis.entity.AbstractEntity;
 
 
 /**

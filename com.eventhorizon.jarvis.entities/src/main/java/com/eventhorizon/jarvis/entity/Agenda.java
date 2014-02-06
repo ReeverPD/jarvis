@@ -1,4 +1,4 @@
-package com.eventhorizon.jarvis.entities;
+package com.eventhorizon.jarvis.entity;
 
 import java.io.Serializable;
 

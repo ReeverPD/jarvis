@@ -5,12 +5,12 @@
 	<head>
 		<meta charset="UTF-8">
     	<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-		<link rel="icon" type="image/ico" href="${resourcePath}/img/favicon.ico">
-		<link rel="stylesheet" href="${resourcePath}css/login.css">
+		<link rel="icon" type="image/ico" href="${pageContext.servletContext.contextPath}/resources/img/favicon.ico">
+		<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/login.css">
 		<!-- jQuery framework -->
-        <script src="${resourcePath}js/jquery.min.js"></script>
+        <script src="${pageContext.servletContext.contextPath}/resources/js/jquery.min.js"></script>
         <!-- validation -->
-        <script src="${resourcePath}js/lib/jquery-validation/jquery.validate.js"></script>
+        <script src="${pageContext.servletContext.contextPath}/resources/js/lib/jquery-validation/jquery.validate.js"></script>
     
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300 ' rel='stylesheet'>
 		
@@ -55,6 +55,23 @@
 		
 	</head>
 	<body>
-
+		<div id="login-wrapper" class="clearfix">
+        <div class="main-col">
+            <img src="img/beoro.png" alt="" class="logo_img" />
+            <div class="panel">
+                <p class="heading_main">Account Login</p>
+                <form id="login-validate" action="dashboard.html" method="post">
+                    <label for="login_name">Login</label>
+                    <input type="text" id="login_name" name="login_name" value="Jonathan Smith" />
+                    <label for="login_password">Password</label>
+                    <input type="password" id="login_password" name="login_password" value="password" />
+                    <label for="login_remember" class="checkbox"><input type="checkbox" id="login_remember" name="login_remember" /> Remember me</label>
+                    <div class="submit_sect">
+                        <button type="submit" class="btn btn-beoro-3">Login</button>
+                    </div>
+                </form>
+            </div>
+            
+        
 	</body>
 </html>

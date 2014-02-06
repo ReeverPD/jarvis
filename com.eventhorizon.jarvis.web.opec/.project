@@ -3,6 +3,8 @@
 	<name>com.eventhorizon.jarvis.web.opec</name>
 	<comment></comment>
 	<projects>
+		<project>com.eventhorizon.jarvis.entities</project>
+		<project>com.eventhorizon.jarvis.service</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

@@ -22,13 +22,13 @@
         <module>com.eventhorizon.jarvis.entities</module>
         <module>com.eventhorizon.jarvis.service</module>
         <module>com.eventhorizon.jarvis.web</module>
-        <module>com.eventhorizon.jarvis.opec</module>
+        <module>com.eventhorizon.jarvis.web.opec</module>
         
-        <!-- Dependency Projects -->
+        <!-- Dependency Projects 
         <module>com.eventhorizon.jarvis.mobile.library.android</module>
         <module>com.eventhorizon.jarvis.mobile.android</module>
         <module>com.eventhorizon.jarvis.mobile.ios</module>
-        <!-- <module>com.quixote.site</module> -->
+         -->
     </modules>
     
     <dependencies>
