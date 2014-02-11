@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context antiJARLocking="true" path="/com.eventhorizon.jarvis">
+<!-- <Context antiJARLocking="true" path="/com.eventhorizon.jarvis">
     <ResourceLink name="jdbc/JarvisDS" global="jdbc/JarvisDS" type="javax.sql.DataSource"/>
 </Context>
+ -->
