@@ -12,11 +12,9 @@
 	<http auto-config="true">
 		<!-- Don't set any role restrictions on login.jsp -->
 		<intercept-url pattern="/login" access="IS_AUTHENTICATED_ANONYMOUSLY" />
-		<!-- Restrict access to ALL other pages -->
-		<intercept-url pattern="/**" access="ROLE_USER" />
 		<!-- Set the login page and what to do if login fails -->
 		<form-login login-page="/login" authentication-failure-url="/login/error/1" />
-
+		<!-- Set the access levels -->
 		<intercept-url pattern="/admin/*" access="ROLE_ADMIN" />
 		<intercept-url pattern="/manager/*" access="ROLE_MANAGER" />
 		<intercept-url pattern="/**" access="ROLE_USER,ROLE_ADMIN, ROLE_MANAGER" />
@@ -26,8 +24,5 @@
 	 	<authentication-provider ref="JarvisOpecAuthenticationProvider" />
 	 </authentication-manager>
 	 
-	<!-- authentication-provider>
-    	<jdbc-user-service data-source-ref="jdbc/Jarvis-ds" />
-	</authentication-provider-->
-
+	 
 </beans:beans>

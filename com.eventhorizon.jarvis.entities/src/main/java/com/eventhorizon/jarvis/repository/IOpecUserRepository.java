@@ -8,21 +8,21 @@ import com.eventhorizon.jarvis.entity.CMSUser;
  * 
  * @author Iuri Andreazza { iuri.andreazza@gmail.com }
  */
-public interface IUserRepository extends IRepository<CMSUser, Long> {
+public interface IOpecUserRepository extends IRepository<CMSUser, Long> {
 
 	/**
 	 * Procura por usuario + pass
 	 * 
 	 * @param username
 	 * @param password
-	 * @return
+	 * @return CMSUser ou null em caso de não encontrar o usuario
 	 */
 	CMSUser findByUsernamePassword(String username, String password);
 	
 	/**
 	 * Procura por usuario somente pelo seu username
 	 * @param username
-	 * @return
+	 * @return CMSUser ou null em caso de não encontrar o usuario
 	 */
 	CMSUser findByUsername(String username);
 	
@@ -30,7 +30,7 @@ public interface IUserRepository extends IRepository<CMSUser, Long> {
 	 * Autentica usuario no modo superusuario
 	 * 
 	 * @param token
-	 * @return
+	 * @return CMSUser ou null em caso de não encontrar o usuario
 	 */
 	CMSUser findUserByToken(String token);
 	
