@@ -96,6 +96,7 @@ public abstract class AbstractRepository<T extends AbstractEntity<K>, K extends 
         }
     }
 
+    @Transactional
     @Override
     public T merge(T entity) {
         return (T)this.getEntityManager().merge(entity);

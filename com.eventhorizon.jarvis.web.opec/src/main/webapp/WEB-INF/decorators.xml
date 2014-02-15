@@ -15,9 +15,9 @@
     
     <!-- <decorator name="intern-theme" page="intern-theme.jsp">
         <pattern>/app*</pattern>
-    </decorator>
-    <decorator name="main-theme" page="main-theme.jsp">
+    </decorator> -->
+    <decorator name="clean-base" page="Clean_Theme.jsp">
         <pattern>/*</pattern>
     </decorator>
-     -->
+     
 </decorators>

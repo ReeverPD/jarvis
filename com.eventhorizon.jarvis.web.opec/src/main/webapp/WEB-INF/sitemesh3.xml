@@ -6,7 +6,7 @@
         <!--<tag-rule-bundle class="com.something.LinkRewritingBundle"/>-->
     </content-processor>
     
-    <!-- <mapping path="/*" decorator="/WEB-INF/decorators/main-theme.jsp"/> -->
+    <mapping path="/*" decorator="/WEB-INF/decorators/Clean_Theme.jsp"/>
     <!-- <mapping path="/app/*" decorator="/WEB-INF/decorators/intern-theme.jsp"/> -->
     
 </sitemesh>

@@ -5,7 +5,7 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
-        <dependent-module archiveName="com.eventhorizon.jarvis.entities.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/com.eventhorizon.jarvis.entities/com.eventhorizon.jarvis.entities">
+        <dependent-module archiveName="com.eventhorizon.jarvis.entities-1.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/com.eventhorizon.jarvis.entities/com.eventhorizon.jarvis.entities">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <property name="context-root" value="com.eventhorizon.jarvis.web.opec"/>

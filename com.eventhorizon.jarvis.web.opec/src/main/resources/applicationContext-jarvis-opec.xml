@@ -28,6 +28,8 @@
     
 	<!-- Data Resources -->
 	<import resource="classpath:applicationContext-jarvis-entities.xml"/>
+	<!-- Security -->
+	<import resource="classpath:applicationContext-jarvis-security.xml"/>
 
 	
 	

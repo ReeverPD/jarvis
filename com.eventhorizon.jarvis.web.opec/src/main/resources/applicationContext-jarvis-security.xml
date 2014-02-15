@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    				    http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+						http://www.springframework.org/schema/security 
+						http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+
+	<global-method-security secured-annotations="enabled">
+	</global-method-security>
+
+	<http auto-config="true">
+		<!-- Don't set any role restrictions on login.jsp -->
+		<intercept-url pattern="/login" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<!-- Restrict access to ALL other pages -->
+		<intercept-url pattern="/**" access="ROLE_USER" />
+		<!-- Set the login page and what to do if login fails -->
+		<form-login login-page="/login" authentication-failure-url="/login/error/1" />
+
+		<intercept-url pattern="/admin/*" access="ROLE_ADMIN" />
+		<intercept-url pattern="/manager/*" access="ROLE_MANAGER" />
+		<intercept-url pattern="/**" access="ROLE_USER,ROLE_ADMIN, ROLE_MANAGER" />
+	</http>
+
+	 <authentication-manager>
+	 	<authentication-provider ref="JarvisOpecAuthenticationProvider" />
+	 </authentication-manager>
+	 
+	<!-- authentication-provider>
+    	<jdbc-user-service data-source-ref="jdbc/Jarvis-ds" />
+	</authentication-provider-->
+
+</beans:beans>

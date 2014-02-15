@@ -38,7 +38,7 @@
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/**" />
-			<bean class="com.eventhorizon.jarviso.opec.interceptors.PageInterceptor" />
+			<bean class="com.eventhorizon.jarvis.opec.interceptor.OpecPageInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>
 

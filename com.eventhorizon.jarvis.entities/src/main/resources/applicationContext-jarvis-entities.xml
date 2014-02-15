@@ -26,15 +26,15 @@
           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd
           http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd" default-lazy-init="true">
     
+    
     <bean id="jpaDialect" class="org.springframework.orm.jpa.vendor.EclipseLinkJpaDialect" />
-    <bean id="cookieLoginFace" class="com.reever.humilheme.web.CookieController" p:expiry="#{60 * 60 * 1 * 1}" p:nomeCookie="cookieUserFace"/>
     <!-- JPA Config -->
         
     <beans profile="enterprise">
-        <jee:jndi-lookup id="dataSource" jndi-name="jdbc/JarvisDS" />
+        <jee:jndi-lookup id="dataSource" jndi-name="jdbc/Jarvis-ds" />
         
         <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-            <property name="persistenceUnitName" value="humilhePU" />
+            <property name="persistenceUnitName" value="jarvisPU" />
             <property name="jpaVendorAdapter">
                 <bean class="org.springframework.orm.jpa.vendor.EclipseLinkJpaVendorAdapter">
                     <property name="showSql" value="false"/>
