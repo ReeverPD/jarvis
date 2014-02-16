@@ -8,6 +8,9 @@
         <dependent-module archiveName="com.eventhorizon.jarvis.entities-1.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/com.eventhorizon.jarvis.entities/com.eventhorizon.jarvis.entities">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="com.eventhorizon.jarvis.service-1.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/com.eventhorizon.jarvis.service/com.eventhorizon.jarvis.service">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="com.eventhorizon.jarvis.web.opec"/>
         <property name="java-output-path" value="/com.eventhorizon.jarvis.web.opec/target/classes"/>
     </wb-module>

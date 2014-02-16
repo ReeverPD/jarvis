@@ -11,25 +11,26 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.eventhorizon.jarvis.opec.util.UrlMapping;
 
-
+/**
+ * Controller do Dashboard e Home do JARVIS OPEC
+ * 
+ * 
+ * @author iuriandreazza
+ */
 @Controller
-public class LoginController extends AbstractController {
+public class HomeController extends AbstractController {
 
 	/**
-	 * Login controller GET Login Screen
+	 * Home base and root controller
 	 * 
 	 * @param request
 	 * @param response
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(method = RequestMethod.GET, value = { UrlMapping.LOGIN_URL })
-    public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
-		
-		return new ModelAndView("login", model);
-	
+	@RequestMapping(method = RequestMethod.GET, value = { UrlMapping.ROOT_URL, UrlMapping.HOME_URL })
+	public ModelAndView Home(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
+		return new ModelAndView("home", model);
 	}
-
-	
 	
 }
