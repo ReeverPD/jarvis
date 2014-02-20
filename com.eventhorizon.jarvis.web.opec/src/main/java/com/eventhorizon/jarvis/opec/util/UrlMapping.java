@@ -16,6 +16,9 @@ public class UrlMapping {
 	
 	//LOGIN - SECURITY
 	public final static String LOGIN_URL  = "/login";
+	public final static String LOGIN_AUTH_URL = "/login/auth";
+	public final static String LOGIN_ERROR_URL  = "/login/error/{code}";
+	public final static String LOGIN_ACCESS_DENIED_URL  = "/login/access/denied";
 	
 	
 	

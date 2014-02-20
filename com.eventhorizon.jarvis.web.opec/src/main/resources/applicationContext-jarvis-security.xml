@@ -6,19 +6,31 @@
 						http://www.springframework.org/schema/security 
 						http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 
-	<global-method-security secured-annotations="enabled">
-	</global-method-security>
+    
+    <beans:bean class="com.eventhorizon.jarvis.security.JarvisOpecAuthenticationProvider" />
+    
+	<global-method-security secured-annotations="enabled"></global-method-security>
 
+	
 	<http auto-config="true">
 		<!-- Don't set any role restrictions on login.jsp -->
 		<intercept-url pattern="/login" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		<intercept-url pattern="/resources/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
-		<!-- Set the login page and what to do if login fails -->
-		<form-login login-page="/login" authentication-failure-url="/login/error/1" />
 		<!-- Set the access levels -->
 		<intercept-url pattern="/admin/**" access="ROLE_ADMIN" />
 		<intercept-url pattern="/manager/**" access="ROLE_MANAGER" />
 		<intercept-url pattern="/**" access="ROLE_USER,ROLE_ADMIN,ROLE_MANAGER" />
+		
+		<!-- Set the login page and what to do if login fails -->
+		<form-login login-page="/login"
+		    default-target-url="/home"
+		    always-use-default-target="false" 
+		    authentication-failure-url="/login/error/1" />
+		
+		<logout logout-success-url="/logout" />
+		<access-denied-handler error-page="/login/access/denied" />
+		
+		
 	</http>
 
 	 <authentication-manager>
