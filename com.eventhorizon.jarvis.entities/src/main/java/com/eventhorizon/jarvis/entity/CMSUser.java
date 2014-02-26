@@ -24,6 +24,7 @@ public class CMSUser extends AbstractEntity<Long> implements Serializable {
 	
 	private static final long serialVersionUID = -8758681200474185698L;
 
+	@Transient
 	private Logger log = LoggerFactory.getLogger(CMSUser.class);
 	
 	@Getter @Setter

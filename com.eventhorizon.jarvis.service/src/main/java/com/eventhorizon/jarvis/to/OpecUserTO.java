@@ -36,18 +36,17 @@ public class OpecUserTO implements Serializable {
 	private String username;
 	
 	//para o OPEC isso é fixo (por enquanto)
-	@Getter @Setter
+	@Setter
 	private List<OpecRoleTO> Authorities;
 
-	//TODO: Fazer carregar os roles do banco e poder dar permissões para as pessoas conforme seu perfil
-	@PostConstruct
-	public void init(){
+	
+	public List<OpecRoleTO> getAuthorities(){
 		List<OpecRoleTO> lst = new ArrayList<OpecRoleTO>();
 		lst.add(new OpecRoleTO("ROLE_ADMIN"));
 		lst.add(new OpecRoleTO("ROLE_USER"));
 		lst.add(new OpecRoleTO("ROLE_MANAGER"));
-		
 		this.setAuthorities(lst);
+		return this.Authorities;
 	}
 	
 }

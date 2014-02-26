@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=US-ASCII" pageEncoding="US-ASCII"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="${lang} }">
 	<head>
@@ -57,16 +58,16 @@
 	<body onload='document.f.j_username.focus();'>
 		<div id="login-wrapper" class="clearfix">
         <div class="main-col">
-            <img src="img/beoro.png" alt="" class="logo_img" />
+            <img src="${pageContext.servletContext.contextPath}/resources/img/beoro.png" alt="" class="logo_img" />
             <div class="panel">
                 <p class="heading_main">Account Login</p>
-                <form id="login-validate"  name='f' action="<c:url value='j_spring_security_check' />" method="post">
+                <form id="login-validate"  name='f' action="<c:url value='/j_spring_security_check' />" method="post">
                     <label for="login_name">Login</label>
                     <input type="text" id="login_name" name="j_username" value="" />
                     <label for="login_password">Password</label>
                     <input type="password" id="login_password" name="j_password" value="" />
                     
-                    <c:if test="${not empty error}">
+                    <c:if test="${not empty loginError }">
                     	${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}
                     </c:if>
                     

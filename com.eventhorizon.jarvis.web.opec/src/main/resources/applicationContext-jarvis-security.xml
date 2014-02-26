@@ -1,41 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans:beans xmlns="http://www.springframework.org/schema/security"
-	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans
-    				    http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
-						http://www.springframework.org/schema/security 
-						http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+	xmlns:beans="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+    				    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+						http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 
-    
-    <beans:bean class="com.eventhorizon.jarvis.security.JarvisOpecAuthenticationProvider" />
-    
+
+
 	<global-method-security secured-annotations="enabled"></global-method-security>
 
-	
+	<beans:bean name="opecProvider"
+		class="com.eventhorizon.jarvis.security.JarvisOpecAuthenticationProvider" />
+
+
+
 	<http auto-config="true">
 		<!-- Don't set any role restrictions on login.jsp -->
-		<intercept-url pattern="/login" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<intercept-url pattern="/login/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		<intercept-url pattern="/resources/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		<!-- Set the access levels -->
 		<intercept-url pattern="/admin/**" access="ROLE_ADMIN" />
 		<intercept-url pattern="/manager/**" access="ROLE_MANAGER" />
-		<intercept-url pattern="/**" access="ROLE_USER,ROLE_ADMIN,ROLE_MANAGER" />
-		
+		<intercept-url pattern="/**"
+			access="ROLE_USER,ROLE_ADMIN,ROLE_MANAGER" />
+
 		<!-- Set the login page and what to do if login fails -->
-		<form-login login-page="/login"
-		    default-target-url="/home"
-		    always-use-default-target="false" 
-		    authentication-failure-url="/login/error/1" />
-		
+		<form-login login-page="/login" default-target-url="/home"
+			always-use-default-target="false" authentication-failure-url="/login/error/1" />
+
 		<logout logout-success-url="/logout" />
 		<access-denied-handler error-page="/login/access/denied" />
-		
-		
+
+
 	</http>
 
-	 <authentication-manager>
-	 	<authentication-provider ref="com.eventhorizon.jarvis.security.JarvisOpecAuthenticationProvider" />
-	 </authentication-manager>
-	 
-	 
+	<authentication-manager>
+		<authentication-provider ref="opecProvider" />
+	</authentication-manager>
+
+
 </beans:beans>

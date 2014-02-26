@@ -12,6 +12,7 @@ import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -43,12 +44,6 @@ public class LoginController extends AbstractController {
 	@RequestMapping(method = RequestMethod.GET, value = { UrlMapping.LOGIN_URL })
     public ModelAndView handleLoginRequest(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
 		
-		log.info(">>>>>>> OpecProv"+authenticationProvider);
-		log.info(">>>>>>> OpecRepo"+opecUserRepository);
-		log.info(">>>>>>> OpecServ"+opecUserService1);
-		
-		
-		
 		return new ModelAndView("login", model);
 	
 	}
@@ -76,12 +71,11 @@ public class LoginController extends AbstractController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(method = RequestMethod.GET, value = { UrlMapping.LOGIN_ERROR_URL })
-	public ModelAndView handleLoginRequestError(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
-		
-		log.info(">>>>>>> OpecProv"+authenticationProvider);
-		log.info(">>>>>>> OpecRepo"+opecUserRepository);
-		
+	@RequestMapping(method = { RequestMethod.GET, RequestMethod.POST }, value = { UrlMapping.LOGIN_ERROR_URL })
+	public ModelAndView handleLoginRequestError(
+			@PathVariable int code,
+			HttpServletRequest request, HttpServletResponse response, ModelMap model) {
+		log.info(">>>>>> ERRO durante login");
 		model.addAttribute("loginError", true);
 		return new ModelAndView("login", model);
 	}

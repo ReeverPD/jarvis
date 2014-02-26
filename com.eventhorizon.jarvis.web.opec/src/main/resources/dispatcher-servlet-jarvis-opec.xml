@@ -21,10 +21,9 @@
           http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd "
 	default-lazy-init="true">
 
-    <import resource="classpath:dispatcher-servlet-jarvis-entities.xml"/>
+    <context:annotation-config />
     <import resource="classpath:dispatcher-servlet-jarvis-service.xml"/>
     
-	
     <mvc:annotation-driven />
     <context:component-scan base-package="com.eventhorizon.jarvis.opec.controller" />
     
