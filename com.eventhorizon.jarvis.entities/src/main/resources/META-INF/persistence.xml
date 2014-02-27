@@ -10,6 +10,7 @@
 
 		<class>com.eventhorizon.jarvis.entity.AbstractEntity</class>
 		<class>com.eventhorizon.jarvis.entity.Agenda</class>
+		<class>com.eventhorizon.jarvis.entity.CMSUser</class>
 		<class>com.eventhorizon.jarvis.entity.Compromisso</class>
 		<class>com.eventhorizon.jarvis.entity.Contato</class>
 		<class>com.eventhorizon.jarvis.entity.ConversaCompromisso</class>
@@ -17,14 +18,13 @@
 		<class>com.eventhorizon.jarvis.entity.Faq</class>
 		<class>com.eventhorizon.jarvis.entity.HistoricoCobranca</class>
 		<class>com.eventhorizon.jarvis.entity.Horario</class>
+		<class>com.eventhorizon.jarvis.entity.ItemCobranca</class>
 		<class>com.eventhorizon.jarvis.entity.JOB_Exection</class>
 		<class>com.eventhorizon.jarvis.entity.Job</class>
+		<class>com.eventhorizon.jarvis.entity.ParametroAplicativo</class>
 		<class>com.eventhorizon.jarvis.entity.User</class>
 		<class>com.eventhorizon.jarvis.entity.Vertical</class>
 		<class>com.eventhorizon.jarvis.entity.VerticalUser</class>
-		<class>com.eventhorizon.jarvis.entity.CMSUser</class>
-		<class>com.eventhorizon.jarvis.entity.ItemCobranca</class>
-		<class>com.eventhorizon.jarvis.entity.ParametroAplicativo</class>
 
 		<properties>
 			<property name="eclipselink.ddl-generation" value="none" />

@@ -13,9 +13,9 @@
 		<pattern>/META-INF/*</pattern>
 	</excludes>
     
-    <!-- <decorator name="intern-theme" page="intern-theme.jsp">
-        <pattern>/app*</pattern>
-    </decorator> -->
+    <decorator name="intern-theme" page="Inner_Theme.jsp">
+        <pattern>/app/*</pattern>
+    </decorator>
     <decorator name="clean-base" page="Clean_Theme.jsp">
         <pattern>/*</pattern>
     </decorator>

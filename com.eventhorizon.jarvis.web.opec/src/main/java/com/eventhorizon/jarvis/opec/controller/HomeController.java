@@ -33,4 +33,18 @@ public class HomeController extends AbstractController {
 		return new ModelAndView("home", model);
 	}
 	
+	/**
+	 * Redirect from ROOT Dir to /app/home
+	 * 
+	 * @param request
+	 * @param response
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(method = RequestMethod.GET, value = UrlMapping.ROOT_FULL_URL)
+	public ModelAndView rootRedirect(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
+		return new ModelAndView("redirect: "+UrlMapping.ROOT_FULL_URL);
+	}
+	
+	
 }

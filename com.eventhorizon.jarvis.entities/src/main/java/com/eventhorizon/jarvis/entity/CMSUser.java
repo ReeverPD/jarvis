@@ -9,6 +9,9 @@ import javax.persistence.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.eventhorizon.jarvis.enuns.SimNao;
+import com.mysql.jdbc.log.Log;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -28,7 +31,8 @@ public class CMSUser extends AbstractEntity<Long> implements Serializable {
 	private Logger log = LoggerFactory.getLogger(CMSUser.class);
 	
 	@Getter @Setter
-	private String ativo;
+	@Enumerated(EnumType.STRING)
+	private SimNao ativo;
 
 	@Getter @Setter
 	private String email;
@@ -41,9 +45,13 @@ public class CMSUser extends AbstractEntity<Long> implements Serializable {
 	
 	@Getter @Setter
 	private String username;
+	
+	@Getter @Setter
+	private String token;
 
 	
-	public String getToken(){
+	public String getTokenHash(){
+		log.info(">>>> "+this.getId());
 		try {
 			MessageDigest md = MessageDigest.getInstance("MD5");
 			md.update(this.getId().toString().getBytes());

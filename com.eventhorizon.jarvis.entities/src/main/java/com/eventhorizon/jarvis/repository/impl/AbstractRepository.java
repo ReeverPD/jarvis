@@ -7,7 +7,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.Setter;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,7 +35,7 @@ public abstract class AbstractRepository<T extends AbstractEntity<K>, K extends 
     @Getter
     private final Logger _logger = LoggerFactory.getLogger(AbstractRepository.class);
     
-    @Getter
+    @Getter(value=AccessLevel.PROTECTED)
     protected EntityManager entityManager;
 
     /**

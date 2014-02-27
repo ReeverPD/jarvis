@@ -7,6 +7,6 @@
     </content-processor>
     
     <mapping path="/*" decorator="/WEB-INF/decorators/Clean_Theme.jsp"/>
-    <!-- <mapping path="/app/*" decorator="/WEB-INF/decorators/intern-theme.jsp"/> -->
+    <mapping path="/app/*" decorator="/WEB-INF/decorators/Inner_Theme.jsp"/>
     
 </sitemesh>

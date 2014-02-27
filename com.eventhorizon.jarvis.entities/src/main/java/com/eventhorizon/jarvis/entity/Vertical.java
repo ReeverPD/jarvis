@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import javax.persistence.*;
 
+import com.eventhorizon.jarvis.enuns.SimNao;
+
 import java.util.List;
 
 import lombok.Getter;
@@ -20,12 +22,24 @@ public class Vertical extends AbstractEntity<Long> implements Serializable {
 	private static final long serialVersionUID = 8636028641369469022L;
 
 	@Getter @Setter
-	private String ativo;
+	@Enumerated(EnumType.STRING)
+	private SimNao ativo;
 
 	@Getter @Setter
 	private String nome;
+	
+	//bi-directional many-to-one association to Vertical
+	@Getter @Setter
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="Id_VerticalPai")
+	private Vertical vertical;
+	
+	//bi-directional many-to-one association to Vertical
+	@Getter @Setter
+	@OneToMany(mappedBy="vertical")
+	private List<Vertical> verticals;
 
-	// bi-directional many-to-one association to VerticalUser
+	//bi-directional many-to-one association to VerticalUser
 	@Getter @Setter
 	@OneToMany(mappedBy = "vertical")
 	private List<VerticalUser> verticalUsers;
@@ -41,6 +55,20 @@ public class Vertical extends AbstractEntity<Long> implements Serializable {
 		getVerticalUsers().remove(verticalUser);
 		verticalUser.setVertical(null);
 		return verticalUser;
+	}
+	
+	public Vertical addVertical(Vertical vertical) {
+		getVerticals().add(vertical);
+		vertical.setVertical(this);
+
+		return vertical;
+	}
+
+	public Vertical removeVertical(Vertical vertical) {
+		getVerticals().remove(vertical);
+		vertical.setVertical(null);
+
+		return vertical;
 	}
 
 }

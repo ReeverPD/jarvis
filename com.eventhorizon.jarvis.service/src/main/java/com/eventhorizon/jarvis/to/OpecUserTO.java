@@ -6,6 +6,8 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 
+import com.eventhorizon.jarvis.enuns.SimNao;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -21,7 +23,7 @@ public class OpecUserTO implements Serializable {
 	private Long Id;
 	
 	@Getter @Setter
-	private String ativo;
+	private SimNao ativo;
 
 	@Getter @Setter
 	private String email;

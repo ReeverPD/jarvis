@@ -3,6 +3,7 @@
 	<name>com.eventhorizon.jarvis.service</name>
 	<comment></comment>
 	<projects>
+		<project>com.eventhorizon.jarvis.entities</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
@@ -21,12 +22,12 @@
 			</arguments>
 		</buildCommand>
 		<buildCommand>
-			<name>org.eclipse.m2e.core.maven2Builder</name>
+			<name>org.springframework.ide.eclipse.core.springbuilder</name>
 			<arguments>
 			</arguments>
 		</buildCommand>
 		<buildCommand>
-			<name>org.springframework.ide.eclipse.core.springbuilder</name>
+			<name>org.eclipse.m2e.core.maven2Builder</name>
 			<arguments>
 			</arguments>
 		</buildCommand>

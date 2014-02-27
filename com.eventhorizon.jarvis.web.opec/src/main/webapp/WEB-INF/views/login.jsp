@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="${lang} }">
+<html lang="${lang}">
 	<head>
 		<meta charset="UTF-8">
     	<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
@@ -17,7 +17,7 @@
 		
 		
 		<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-		<title>Jarvis - OPEC</title>
+		<title>Security Checkpoint</title>
 		
 		<script type="text/javascript">
         (function(a){a.fn.vAlign=function(){return this.each(function(){var b=a(this).height(),c=a(this).outerHeight(),b=(b+(c-b))/2;a(this).css("margin-top","-"+b+"px");a(this).css("top","50%");a(this).css("position","absolute")})}})(jQuery);(function(a){a.fn.hAlign=function(){return this.each(function(){var b=a(this).width(),c=a(this).outerWidth(),b=(b+(c-b))/2;a(this).css("margin-left","-"+b+"px");a(this).css("left","50%");a(this).css("position","absolute")})}})(jQuery);

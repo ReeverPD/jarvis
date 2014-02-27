@@ -11,8 +11,9 @@ package com.eventhorizon.jarvis.opec.util;
 public class UrlMapping {
 	
 	//HOME
-	public final static String ROOT_URL  = "/";
-	public final static String HOME_URL  = "/HOME";
+	public final static String ROOT_FULL_URL  = "/app/";
+	public final static String ROOT_URL  = "/app/";
+	public final static String HOME_URL  = "/app/home";
 	
 	//LOGIN - SECURITY
 	public final static String LOGIN_URL  = "/login";
