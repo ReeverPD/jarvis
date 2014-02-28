@@ -17,12 +17,18 @@ public class OpecUserRepository extends AbstractRepository<CMSUser, Long>
 
 	@Override
 	public CMSUser findByUsernamePassword(String username, String password) {
-
+		
 		Query query = this.getEntityManager().createQuery(    
-				"SELECT u FROM CMSUser AS u WHERE u.username = :username and u.password = :password and u.ativo = :ativo");
+				"SELECT u "
+				+ "FROM CMSUser AS u "
+				+ "WHERE u.username = :username "
+				+ "	and u.password = :password "
+				+ "	and u.ativo = :atv"
+				);
+		
 		query.setParameter("username", username);
 		query.setParameter("password", password);
-		query.setParameter("ativo", SimNao.SIM);
+		query.setParameter("atv", SimNao.S);
 		List<CMSUser> lst = query.getResultList();
 
 		if (lst.isEmpty()) {

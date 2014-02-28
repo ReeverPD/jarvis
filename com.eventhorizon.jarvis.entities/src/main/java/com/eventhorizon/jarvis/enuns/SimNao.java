@@ -2,7 +2,7 @@ package com.eventhorizon.jarvis.enuns;
 
 public enum SimNao {
 
-	SIM("S", "Sim"), NAO("N", "Não");
+	S("S", "Sim"), N("N", "Não");
 
 	private String valor;
 	private String description;
@@ -22,11 +22,11 @@ public enum SimNao {
 	}
 
 	public Boolean toBoolean() {
-		return this.equals(SIM);
+		return this.equals(S);
 	}
 
 	public static SimNao toEnum(Boolean value) {
-		return value ? SimNao.SIM : SimNao.NAO;
+		return value ? SimNao.S : SimNao.N;
 	}
 
 	public String getValor() {
@@ -43,9 +43,9 @@ public enum SimNao {
 
 	public static SimNao getSimNao(final String valor) {
 		if ("1".equals(valor) || "S".equalsIgnoreCase(valor)) {
-			return SimNao.SIM;
+			return SimNao.S;
 		}
-		return SimNao.NAO;
+		return SimNao.N;
 	}
 
 }

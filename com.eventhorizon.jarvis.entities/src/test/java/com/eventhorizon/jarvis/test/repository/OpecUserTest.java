@@ -54,7 +54,7 @@ public class OpecUserTest{
 		userTestAtivo = new CMSUser();
 		userTestAtivo.setUsername("userTeste1");
 		userTestAtivo.setPassword("123");
-		userTestAtivo.setAtivo(SimNao.SIM);
+		userTestAtivo.setAtivo(SimNao.S);
 		userTestAtivo.setPicture("Pic1");
 		userTestAtivo = opecUserRepository.save(userTestAtivo);
 		userTestAtivo.setToken(userTestAtivo.getTokenHash());
@@ -63,7 +63,7 @@ public class OpecUserTest{
 		userTestInativo = new CMSUser();
 		userTestInativo.setUsername("userTeste2");
 		userTestInativo.setPassword("1234");
-		userTestInativo.setAtivo(SimNao.NAO);
+		userTestInativo.setAtivo(SimNao.N);
 		userTestInativo.setPicture("Pic2");
 		userTestInativo = opecUserRepository.save(userTestInativo);
 		userTestInativo.setToken(userTestInativo.getTokenHash());

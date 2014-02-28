@@ -24,13 +24,13 @@ public class JarvisOpecAuthenticationProvider implements AuthenticationProvider 
 
 	@Autowired
 	private IOpecUserService opecUserService;
-	
+	   
 	
 	@Override
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 		String username = authentication.getName();
         String password = (String) authentication.getCredentials();
-        
+           
         OpecUserTO user = opecUserService.findByUsernamePassword(username, password);
         if(user == null){
         	throw new BadCredentialsException("Usuario inexistente.");

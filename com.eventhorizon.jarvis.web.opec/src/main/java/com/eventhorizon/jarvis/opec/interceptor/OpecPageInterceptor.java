@@ -13,6 +13,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.eventhorizon.jarvis.opec.web.ui.NavBar;
 import com.eventhorizon.jarvis.service.IOpecUserService;
 import com.eventhorizon.jarvis.to.OpecUserTO;
 
@@ -34,6 +35,11 @@ public class OpecPageInterceptor implements HandlerInterceptor {
 
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object o, ModelAndView mav) throws Exception {
         if(mav != null){
+        	//Menus (NavBar)
+        	NavBar nav = new NavBar();
+        	mav.addObject("menus", nav.getMenus());
+        	
+        	
         	mav.addObject("year", Calendar.getInstance().get(Calendar.YEAR));
         	
         	Authentication auth = SecurityContextHolder.getContext().getAuthentication();

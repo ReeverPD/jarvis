@@ -51,8 +51,10 @@
 			<property name="jpaDialect" ref="jpaDialect" />
 			<property name="jpaProperties">
 				<props>
-					<prop key="eclipselink.logging.level">WARNING</prop>
 					<prop key="eclipselink.weaving">static</prop>
+					<prop key="eclipselink.logging.level.sql">ALL</prop>
+					<prop key="eclipselink.logging.level">ALL</prop>
+					<prop key="eclipselink.logging.level.cache">ALL</prop>
 				</props>
 			</property>
 		</bean>

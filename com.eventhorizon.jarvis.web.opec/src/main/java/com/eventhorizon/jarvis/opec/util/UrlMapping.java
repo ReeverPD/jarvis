@@ -11,7 +11,7 @@ package com.eventhorizon.jarvis.opec.util;
 public class UrlMapping {
 	
 	//HOME
-	public final static String ROOT_FULL_URL  = "/app/";
+	public final static String ROOT_FULL_URL  = "/";
 	public final static String ROOT_URL  = "/app/";
 	public final static String HOME_URL  = "/app/home";
 	
@@ -20,6 +20,7 @@ public class UrlMapping {
 	public final static String LOGIN_AUTH_URL = "/login/auth";
 	public final static String LOGIN_ERROR_URL  = "/login/error/{code}";
 	public final static String LOGIN_ACCESS_DENIED_URL  = "/login/access/denied";
+	public final static String LOGOUT  = "/logout";
 	
 	
 	

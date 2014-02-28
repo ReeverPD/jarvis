@@ -3,13 +3,22 @@
     Created on : Fev 25, 2014, 4:48:43 PM
     Author     : iuriandreazza
 --%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>   
+<html>
 <head> 
-	<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>J.A.R.V.I.S System - { tipz.com Opec } :: <sitemesh:write property='title'/></title>
 	<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-	<link rel="icon" type="image/ico" href="favicon.ico">
+	
+	<script type="text/javascript">
+        APPLICATION_CONTEXT_PATH = '${pageContext.servletContext.contextPath}';
+    </script>
+	
+	<link rel="icon" type="image/ico" href="${pageContext.servletContext.contextPath}/resources/img/favicon.ico">
 
     <!-- common stylesheets-->
       <!-- bootstrap framework css -->
@@ -67,54 +76,16 @@
                         </div>
                         <div id="fade-menu" class="pull-left">
                             <ul class="clearfix" id="mobile-nav">
-                                <li>
-                                    <a href="javascript:void(0)">Cadastros</a>
-                                    <ul>
-                                        <li>
-                                            <a href="#">FAQ</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Verticais</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Usuários Opec</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Usuários Tipz</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">Fincanceiro</a>
-                                    <ul>
-                                        <li>
-                                            <a href="#">Invoices</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Controle Cobrança</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">Marketing</a>
-                                    <ul>
-                                        <li>
-                                            <a href="#">Contatos</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            	<li>
-                                    <a href="javascript:void(0)">Sistema</a>
-                                    <ul>
-                                        <li>
-                                            <a href="#">Parametros Aplicativo</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">JOBs</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                
+                            	<c:forEach items="${menus}" var="menu">
+                            		<li>
+	                            		<a href="javascript:void(0)">${menu.label}</a>
+	                            		<ul>
+		                            		<c:forEach items="${menu.items}" var="item">
+		                            			<li><a href="${item.link}">${item.label}</a></li>
+		                            		</c:forEach>
+	                            		</ul>
+	                            	</li>
+                            	</c:forEach>
                             </ul>
                         </div>
                     </div>
@@ -126,7 +97,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="span3">
-                            <div class="main-logo"><a href="dashboard.html"><img src="img/beoro_logo.png" alt="Beoro Admin"></a></div>
+                            <div class="main-logo"><a href="${pageContext.servletContext.contextPath}/app/home"><img src="${pageContext.servletContext.contextPath}/resources/img/beoro_logo.png" alt="Beoro Admin"></a></div>
                         </div>
                         <div class="span5">
                             <nav class="nav-icons">
@@ -149,7 +120,7 @@
                                         <ul class="unstyled">
                                             <li><a href="#">Settings</a></li>
                                             <li>&middot;</li>
-                                            <li><a href="/logout">Logout</a></li>
+                                            <li><a href="${pageContext.servletContext.contextPath}/logout">Logout</a></li>
                                         </ul>
                                     </div>
                                 </div>

@@ -75,7 +75,6 @@ public class LoginController extends AbstractController {
 	public ModelAndView handleLoginRequestError(
 			@PathVariable int code,
 			HttpServletRequest request, HttpServletResponse response, ModelMap model) {
-		log.info(">>>>>> ERRO durante login");
 		model.addAttribute("loginError", true);
 		return new ModelAndView("login", model);
 	}
@@ -91,6 +90,22 @@ public class LoginController extends AbstractController {
 	public ModelAndView handleLoginRequestAccessDenied(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
 		return new ModelAndView("accessDenied", model);
 	}
+	
+	
+	/**
+	 * 
+	 * @param request
+	 * @param response
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(method = RequestMethod.GET, value = { UrlMapping.LOGOUT })
+	public ModelAndView handleLogoutRequest(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		auth.setAuthenticated(false);
+		return new ModelAndView("redirect:"+UrlMapping.ROOT_URL);
+	}
+	
 
 	
 	

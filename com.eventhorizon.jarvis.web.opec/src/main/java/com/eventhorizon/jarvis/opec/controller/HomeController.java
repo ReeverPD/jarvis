@@ -43,7 +43,7 @@ public class HomeController extends AbstractController {
 	 */
 	@RequestMapping(method = RequestMethod.GET, value = UrlMapping.ROOT_FULL_URL)
 	public ModelAndView rootRedirect(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
-		return new ModelAndView("redirect: "+UrlMapping.ROOT_FULL_URL);
+		return new ModelAndView("redirect:"+UrlMapping.ROOT_URL);
 	}
 	
 	
