@@ -27,7 +27,7 @@
           http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd ">
     
     
-        <import resource="classpath:dispatcher-servlet-jarvis-opec.xml"/>
+        <import resource="classpath:resources/dispatcher-servlet-jarvis-opec.xml"/>
         
         
 </beans>

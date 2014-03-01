@@ -16,7 +16,7 @@
 
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:applicationContext-jarvis-opec.xml</param-value>
+		<param-value>classpath:resources/applicationContext-jarvis-opec.xml</param-value>
 	</context-param>
 
 	<servlet>

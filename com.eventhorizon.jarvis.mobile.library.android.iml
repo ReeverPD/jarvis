@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="EclipseModuleManager" forced_jdk="true">
+    <conelement value="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER" />
+    <conelement value="com.android.ide.eclipse.adt.DEPENDENCIES" />
+    <src_description expected_position="3">
+      <src_folder value="file://$MODULE_DIR$/com.eventhorizon.jarvis.mobile.library.android/gen" expected_position="1" />
+      <src_folder value="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK" expected_position="2" />
+      <src_folder value="file://$MODULE_DIR$/com.eventhorizon.jarvis.mobile.library.android/src/main/java" expected_position="4" />
+      <src_folder value="file://$MODULE_DIR$/com.eventhorizon.jarvis.mobile.library.android/src/test/java" expected_position="5" />
+      <src_folder value="com.android.ide.eclipse.adt.LIBRARIES" expected_position="6" />
+    </src_description>
+  </component>
+  <component name="FacetManager">
+    <facet type="android" name="Android">
+      <configuration>
+        <option name="GEN_FOLDER_RELATIVE_PATH_APT" value="/com.eventhorizon.jarvis.mobile.library.android/gen" />
+        <option name="GEN_FOLDER_RELATIVE_PATH_AIDL" value="/com.eventhorizon.jarvis.mobile.library.android/gen" />
+        <option name="MANIFEST_FILE_RELATIVE_PATH" value="/com.eventhorizon.jarvis.mobile.library.android/AndroidManifest.xml" />
+        <option name="RES_FOLDER_RELATIVE_PATH" value="/com.eventhorizon.jarvis.mobile.library.android/res" />
+        <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/com.eventhorizon.jarvis.mobile.library.android/assets" />
+        <option name="LIBS_FOLDER_RELATIVE_PATH" value="/com.eventhorizon.jarvis.mobile.library.android/libs" />
+        <option name="LIBRARY_PROJECT" value="true" />
+        <resOverlayFolders>
+          <path>/com.eventhorizon.jarvis.mobile.library.android/res-overlay</path>
+        </resOverlayFolders>
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="false">
+    <output url="file://$MODULE_DIR$/com.eventhorizon.jarvis.mobile.library.android/target/classes" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/com.eventhorizon.jarvis.mobile.library.android">
+      <sourceFolder url="file://$MODULE_DIR$/com.eventhorizon.jarvis.mobile.library.android/gen" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/com.eventhorizon.jarvis.mobile.library.android/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/com.eventhorizon.jarvis.mobile.library.android/src/test/java" isTestSource="false" />
+    </content>
+    <orderEntry type="jdk" jdkName="JavaSE-1.7" jdkType="JavaSDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
+

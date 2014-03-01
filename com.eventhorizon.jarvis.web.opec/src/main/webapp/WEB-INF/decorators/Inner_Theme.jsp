@@ -54,8 +54,6 @@
           <script src="${pageContext.servletContext.contextPath}/resources/js/ie/respond.min.js"></script>
           <script src="${pageContext.servletContext.contextPath}/resources/js/lib/flot-charts/excanvas.min.js"></script>
       <![endif]-->
-
-	
 	
 	
 	

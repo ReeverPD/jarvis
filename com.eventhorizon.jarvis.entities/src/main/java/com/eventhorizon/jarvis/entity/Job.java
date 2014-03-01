@@ -32,19 +32,19 @@ public class Job extends AbstractEntity<Long> implements Serializable {
 	@Getter @Setter
 	private String nome;
 	
-	//bi-directional many-to-one association to JOB_Exection
+	//bi-directional many-to-one association to JobExecution
 	@Getter @Setter
 	@OneToMany(mappedBy="job")
-	private List<JOB_Exection> jobExections;
+	private List<JobExecution> jobExections;
 
-	public JOB_Exection addJobExection(JOB_Exection jobExection) {
+	public JobExecution addJobExection(JobExecution jobExection) {
 		getJobExections().add(jobExection);
 		jobExection.setJob(this);
 
 		return jobExection;
 	}
 
-	public JOB_Exection removeJobExection(JOB_Exection jobExection) {
+	public JobExecution removeJobExection(JobExecution jobExection) {
 		getJobExections().remove(jobExection);
 		jobExection.setJob(null);
 

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="com.eventhorizon.jarvis.web:war">
+    <output-path>$PROJECT_DIR$/com.eventhorizon.jarvis.web/target</output-path>
+    <root id="archive" name="com.eventhorizon.jarvis.web.war">
+      <element id="artifact" artifact-name="com.eventhorizon.jarvis.web:war exploded" />
+    </root>
+  </artifact>
+</component>

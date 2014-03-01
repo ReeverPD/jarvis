@@ -19,7 +19,7 @@
 		<class>com.eventhorizon.jarvis.entity.HistoricoCobranca</class>
 		<class>com.eventhorizon.jarvis.entity.Horario</class>
 		<class>com.eventhorizon.jarvis.entity.ItemCobranca</class>
-		<class>com.eventhorizon.jarvis.entity.JOB_Exection</class>
+		<class>com.eventhorizon.jarvis.entity.JobExecution</class>
 		<class>com.eventhorizon.jarvis.entity.Job</class>
 		<class>com.eventhorizon.jarvis.entity.ParametroAplicativo</class>
 		<class>com.eventhorizon.jarvis.entity.User</class>
