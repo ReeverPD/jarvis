@@ -15,6 +15,13 @@ import com.eventhorizon.jarvis.entity.AbstractEntity;
  */
 public interface IService <T extends AbstractEntity<K>, K extends Serializable> {
 
+    /**
+     * Find All (List All Elements)
+     * Slow Method, not to use often
+     *
+     * @return
+     */
+    List<T> findAll();
 	T findById(K id);
     List<T> find(T entity);
     T save(T entity);

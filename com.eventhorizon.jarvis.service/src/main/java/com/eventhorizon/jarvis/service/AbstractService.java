@@ -17,7 +17,18 @@ import com.eventhorizon.jarvis.repository.IRepository;
 public abstract class AbstractService <T extends AbstractEntity<K>, K extends Serializable> implements IService<T, K> {
 	
 	public abstract IRepository<T, K> getRepository();
-    
+
+    /**
+     * Find All (List All Elements)
+     * Slow Method, not to use often
+     *
+     * @return
+     */
+    @Override
+    public List<T> findAll(){
+        return this.getRepository().findAll();
+    }
+
     @Override
     public T findById(K id) {
         return this.getRepository().getById(id);

@@ -1,6 +1,8 @@
 package com.eventhorizon.jarvis.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.eventhorizon.jarvis.entity.CMSUser;
@@ -64,5 +66,15 @@ public class OpecUserService extends AbstractService<CMSUser, Long> implements
 		userTO.setUsername(user.getUsername());
 		return userTO;
 	}
+
+
+    /**
+     *
+     * @return
+     */
+    public boolean isAutenticated(){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        return auth != null && SecurityContextHolder.getContext().getAuthentication().isAuthenticated() && !auth.getName().equalsIgnoreCase("anonymousUser");
+    }
 
 }

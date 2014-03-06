@@ -7,19 +7,16 @@
     				    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
 						http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 
-
-
 	<global-method-security secured-annotations="enabled"></global-method-security>
 
 	<beans:bean name="opecProvider"
 		class="com.eventhorizon.jarvis.security.JarvisOpecAuthenticationProvider" />
 
-
-
 	<http auto-config="true">
 		<!-- Don't set any role restrictions on login.jsp -->
 		<intercept-url pattern="/login/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		<intercept-url pattern="/resources/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+        <intercept-url pattern="/images/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		<!-- Set the access levels -->
 		<intercept-url pattern="/admin/**" access="ROLE_ADMIN" />
 		<intercept-url pattern="/manager/**" access="ROLE_MANAGER" />
@@ -30,7 +27,7 @@
 		<form-login login-page="/login" default-target-url="/app/home"
 			always-use-default-target="false" authentication-failure-url="/login/error/1" />
 
-		<logout logout-success-url="/logout" />
+		<logout delete-cookies="JSESSIONID" invalidate-session="true" logout-url="/logout" logout-success-url="/login" />
 		<access-denied-handler error-page="/login/access/denied" />
 
 

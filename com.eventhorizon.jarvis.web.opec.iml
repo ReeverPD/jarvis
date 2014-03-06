@@ -22,7 +22,17 @@
       </configuration>
     </facet>
     <facet type="Spring" name="Spring">
-      <configuration />
+      <configuration>
+        <fileset id="web application context" name="MVC application context" removed="false" profiles="enterprise">
+          <file>file://$MODULE_DIR$/com.eventhorizon.jarvis.web.opec/src/main/resources/applicationContext-jarvis-opec.xml</file>
+          <file>file://$MODULE_DIR$/com.eventhorizon.jarvis.web.opec/src/main/resources/applicationContext-jarvis-security.xml</file>
+        </fileset>
+        <fileset id="web dispatcher servlet context" name="MVC dispatcher servlet context" removed="false" profiles="enterprise">
+          <dependency>web application context</dependency>
+          <file>file://$MODULE_DIR$/com.eventhorizon.jarvis.web.opec/src/main/webapp/WEB-INF/dispatcher-servlet.xml</file>
+          <file>file://$MODULE_DIR$/com.eventhorizon.jarvis.web.opec/src/main/resources/dispatcher-servlet-jarvis-opec.xml</file>
+        </fileset>
+      </configuration>
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7" inherit-compiler-output="false">

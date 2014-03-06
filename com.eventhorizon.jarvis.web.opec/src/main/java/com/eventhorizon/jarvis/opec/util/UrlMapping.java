@@ -21,6 +21,13 @@ public class UrlMapping {
 	public final static String LOGIN_ERROR_URL  = "/login/error/{code}";
 	public final static String LOGIN_ACCESS_DENIED_URL  = "/login/access/denied";
 	public final static String LOGOUT  = "/logout";
+
+
+
+    //CRUD Urls
+    public final static String LIST_URL = "/List";
+    public final static String EDIT_URL = "/Edit/{id}";
+    public final static String DELETE_URL = "/Delete/{id}";
 	
 	
 	

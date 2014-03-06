@@ -32,14 +32,6 @@
 	<import resource="classpath:applicationContext-jarvis-service.xml"/>
 	<!-- Security -->
 	<import resource="classpath:applicationContext-jarvis-security.xml"/>
-
-	
-	
-	
     
-	
-	
-	
-	
-	
+
 </beans>

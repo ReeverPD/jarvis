@@ -45,25 +45,8 @@ public class LoginController extends AbstractController {
     public ModelAndView handleLoginRequest(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
 		
 		return new ModelAndView("login", model);
-	
 	}
-	
-	/**
-	 * Handle Post from Login Page
-	 * @param request
-	 * @param response
-	 * @param model
-	 * @return
-	 */
-//	@RequestMapping(method = RequestMethod.POST, value = { UrlMapping.LOGIN_AUTH_URL })
-//    public void handleAuthPost(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
-		
-		//Authentication authentication = new ;
-//		UsernamePasswordAuthenticationToken token = this.authenticationProvider.authenticate(authentication);
-//		SecurityContextHolder.createEmptyContext();
-//		SecurityContextHolder.getContext().setAuthentication(token);
-//	}
-	
+
 	/**
 	 * 
 	 * @param request
@@ -99,14 +82,11 @@ public class LoginController extends AbstractController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(method = RequestMethod.GET, value = { UrlMapping.LOGOUT })
-	public ModelAndView handleLogoutRequest(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		auth.setAuthenticated(false);
-		return new ModelAndView("redirect:"+UrlMapping.ROOT_URL);
-	}
-	
+//	@RequestMapping(method = RequestMethod.GET, value = { UrlMapping.LOGOUT })
+//	public ModelAndView handleLogoutRequest(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
+//		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+//		auth.setAuthenticated(false);
+//		return new ModelAndView("redirect:"+UrlMapping.ROOT_URL);
+//	}
 
-	
-	
 }

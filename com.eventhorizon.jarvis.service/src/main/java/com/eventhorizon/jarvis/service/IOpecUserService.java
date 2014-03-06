@@ -36,5 +36,11 @@ public interface IOpecUserService extends IService<CMSUser, Long> {
 	 * @return
 	 */
 	OpecUserTO findUserByToken(String token);
+
+    /**
+     * Verify inside the Spring Security when the user is autenticated or not.
+     * @return
+     */
+    boolean isAutenticated();
 	
 }

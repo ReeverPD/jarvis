@@ -19,7 +19,7 @@ import lombok.Setter;
  */
 @SuppressWarnings("serial")
 @MappedSuperclass
-public class AbstractEntity<T extends Object> implements Serializable {
+public class AbstractEntity<T extends Object & Serializable> implements Serializable {
 
 	@Setter
 	@Getter 

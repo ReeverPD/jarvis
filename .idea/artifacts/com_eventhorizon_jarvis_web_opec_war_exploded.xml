@@ -6,6 +6,8 @@
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="com.eventhorizon.jarvis.web.opec" />
+          <element id="jpa-descriptors" facet="com.eventhorizon.jarvis.entities/jpa/JPA" />
+          <element id="directory" name="META-INF" />
         </element>
         <element id="directory" name="lib">
           <element id="archive" name="com.eventhorizon.jarvis.entities-1.0.0-SNAPSHOT.jar">
@@ -47,8 +49,10 @@
           <element id="library" level="project" name="Maven: javax.interceptor:javax.interceptor-api:1.2" />
           <element id="library" level="project" name="Maven: jstl:jstl:1.2" />
           <element id="library" level="project" name="Maven: org.aspectj:aspectjrt:1.5.4" />
+          <element id="library" level="project" name="Maven: commons-logging:commons-logging:1.0.3" />
         </element>
       </element>
+      <element id="dir-copy" path="$PROJECT_DIR$/com.eventhorizon.jarvis.web.opec/src/main/webapp" />
     </root>
   </artifact>
 </component>

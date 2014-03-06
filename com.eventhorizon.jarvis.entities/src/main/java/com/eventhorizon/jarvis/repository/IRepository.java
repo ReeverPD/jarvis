@@ -1,5 +1,6 @@
 package com.eventhorizon.jarvis.repository;
 
+import java.io.Serializable;
 import java.util.List;
 
 import com.eventhorizon.jarvis.entity.AbstractEntity;
@@ -10,7 +11,7 @@ import com.eventhorizon.jarvis.entity.AbstractEntity;
 *
 * @author Iuri Andreazza { iuri.andreazza@reeverpd.com.br }
 */
-public interface IRepository <T extends AbstractEntity<K>, K extends Object> {
+public interface IRepository <T extends AbstractEntity<K>, K extends Object & Serializable> {
 
 	/**
      * Find All (List All Elements)

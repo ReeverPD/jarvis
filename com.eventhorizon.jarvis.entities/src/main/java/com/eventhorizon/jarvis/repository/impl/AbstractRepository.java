@@ -1,5 +1,6 @@
 package com.eventhorizon.jarvis.repository.impl;
 
+import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
@@ -28,7 +29,7 @@ import com.eventhorizon.jarvis.repository.IRepository;
  * @param <K>
  */
 @SuppressWarnings({ "unchecked" , "restriction" })
-public abstract class AbstractRepository<T extends AbstractEntity<K>, K extends Object> implements IRepository<T, K> {
+public abstract class AbstractRepository<T extends AbstractEntity<K>, K extends Object & Serializable> implements IRepository<T, K> {
 
 	private Class<AbstractEntity<K>> type;
 	
@@ -68,7 +69,7 @@ public abstract class AbstractRepository<T extends AbstractEntity<K>, K extends 
     
     @Override
     public List<T> findAll(){
-    	Query qry = this.getEntityManager().createNamedQuery(type.getName()+".findAll");
+    	Query qry = this.getEntityManager().createNamedQuery(type.getSimpleName()+".findAll");
     	return qry.getResultList();
     }
 	
